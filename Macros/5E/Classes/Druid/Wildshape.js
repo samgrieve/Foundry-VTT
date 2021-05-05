@@ -1,6 +1,7 @@
 // Item Macro
 // Requires Token Magic FX
 // Requires a macro named WildShape Effect Macro
+// Provides the user a list of available Wildshape options generated from an actor folder named Beasts
 
 let selectBeasts = '<form><div class="form-group"><label>Choose your new form: </label><select id="wildShapeBeasts">';
 game.folders.getName("Beasts").content.forEach(function(beast){
