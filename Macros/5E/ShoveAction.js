@@ -1,6 +1,8 @@
 // Item Macro and MIDI-QOL required
 // Set Item to Utility Action with no rolls or damage formula
 // Requires a macro named Shove
+// Credit theripper93
+// https://github.com/theripper93/FoundryVTT-Macros/blob/main/General/shove.js
 
     let pusher = canvas.tokens.get(args[0].tokenId);
     let target = Array.from(game.user.targets)[0];
