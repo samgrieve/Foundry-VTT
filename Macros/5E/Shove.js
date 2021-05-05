@@ -1,3 +1,6 @@
+// Credit theripper93
+// https://github.com/theripper93/FoundryVTT-Macros/blob/main/General/shove.js
+
 if(args[0] == "Prone"){
     await game.cub.addCondition(args[0], canvas.tokens.get(args[1]).actor);  
     return;
