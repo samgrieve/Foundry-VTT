@@ -63,7 +63,7 @@ let wildShape = function(actorNewFormId){
 	// Declare the polymorph function
 	let actorPolymorphism = async function () {
 		// For actorNewForm, the ratio's Token scale should be the same of the original form
-		actor.transformInto(actorNewForm, {
+		_token.actor.transformInto(actorNewForm, {
 			keepMental: true,
 			mergeSaves: true,
 			mergeSkills: true,
@@ -94,7 +94,7 @@ let wildShape = function(actorNewFormId){
 			let actorNewShape = game.actors.getName(actorNewShapeName)
 			let actorOriginalFormEffectsData = actorOriginalForm.effects.map(ef => ef.data)
 			await actorNewShape.createEmbeddedEntity("ActiveEffect", actorOriginalFormEffectsData)
-		} else if (actor.data.flags.dnd5e?.isPolymorphed) {
+		} else if (_token.actor.data.flags.dnd5e?.isPolymorphed) {
 			let actorNewShape = game.actors.getName(actorNewShapeName)
 			let actorNewShapeEffectsData = actorNewShape.effects.map(ef => ef.data)
 			await actorOriginalForm.createEmbeddedEntity("ActiveEffect", actorNewShapeEffectsData)
@@ -117,8 +117,8 @@ let wildShape = function(actorNewFormId){
 	}
 
 	// If not already polymorphed, launch startAnimation function
-	if (!actor.data.flags.dnd5e?.isPolymorphed) {
-		token.TMFXhasFilterId("polymorphToNewForm")
+	if (!_token.actor.data.flags.dnd5e?.isPolymorphed) {
+		_token.TMFXhasFilterId("polymorphToNewForm")
 		let paramsStart = [{
 			filterType: "polymorph",
 			filterId: "polymorphToNewForm",
@@ -146,7 +146,7 @@ let wildShape = function(actorNewFormId){
 			await delay(1100)
 			actorPolymorphism()
 			await delay(500)
-			token.TMFXdeleteFilters("polymorphToNewForm")
+			_token.TMFXdeleteFilters("polymorphToNewForm")
 			let actorNewShape = game.actors.getName(actorNewShapeName, actorOriginalFormId)
 			actorNewShape.createEmbeddedEntity("ActiveEffect", applyWildShapeEffect)
 			transferDAEEffects()
@@ -158,8 +158,8 @@ let wildShape = function(actorNewFormId){
 			"height": actorNewForm.data.token.height
 		})
 		// If actor is polymorphed, launch backAnimation function
-	} else if (actor.data.flags.dnd5e?.isPolymorphed) {
-		token.TMFXhasFilterId("polymorphToOriginalForm")
+	} else if (_token.actor.data.flags.dnd5e?.isPolymorphed) {
+		_token.TMFXhasFilterId("polymorphToOriginalForm")
 		let paramsBack =
 			[{
 				filterType: "polymorph",
@@ -182,13 +182,13 @@ let wildShape = function(actorNewFormId){
 				}
 			}]
 		async function backAnimation() {
-			token.TMFXaddUpdateFilters(paramsBack)
+			_token.TMFXaddUpdateFilters(paramsBack)
 			await delay(1100)
 			transferDAEEffects()
 			await delay(100)
-			actor.revertOriginalForm()
+			_token.actor.revertOriginalForm()
 			await delay(100)
-			token.TMFXdeleteFilters("polymorphToOriginalForm")
+			_token.TMFXdeleteFilters("polymorphToOriginalForm")
 			game.actors.getName(actorOriginalFormName).effects.find(i => i.data.label === wildShapeEffectName).delete()
 		}
 		backAnimation()
