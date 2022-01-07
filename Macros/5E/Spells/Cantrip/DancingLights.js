@@ -49,13 +49,13 @@ if (args[0].tag === "OnUse") {
         summons.push(summon[0]);
     }
 
-    const change = { key: 'flags.dae.deleteUuid', mode: 5, priority: '30' };
-
-    await caster.createEmbeddedDocuments("ActiveEffect", [{
-        changes: summons.map(s => ({ ...change, value: `Scene.${canvas.scene.id}.Token.${s}`})),
-        label: "Dancing Lights Summons",
-        duration: {seconds: 60, rounds: 10},
-        origin: args[0].itemUuid,
-        icon: "icons/magic/light/explosion-star-glow-yellow.webp",
-    }]);
+//    const change = { key: 'flags.dae.deleteUuid', mode: 5, priority: '30' };
+//
+//    await caster.createEmbeddedDocuments("ActiveEffect", [{
+//        changes: summons.map(s => ({ ...change, value: `Scene.${canvas.scene.id}.Token.${s}`})),
+//        label: "Dancing Lights Summons",
+//        duration: {seconds: 60, rounds: 10},
+//        origin: args[0].itemUuid,
+//        icon: "icons/magic/light/explosion-star-glow-yellow.webp",
+//    }]);
 }
