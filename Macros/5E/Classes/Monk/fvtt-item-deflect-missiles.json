@@ -1,0 +1,189 @@
+{
+    "name": "Deflect Missiles",
+    "type": "feat",
+    "img": "icons/skills/ranged/arrow-flying-white-blue.webp",
+    "data": {
+      "description": {
+        "value": "You can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 +10. If you reduce damage to 0 and have a free hand, you can spend 1 ki point to make a ranged attack (as with a monk weapon) with a range of 20/60.",
+        "chat": "You can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 +10. If you reduce damage to 0 and have a free hand, you can spend 1 ki point to make a ranged attack (as with a monk weapon) with a range of 20/60.",
+        "unidentified": ""
+      },
+      "source": "",
+      "activation": {
+        "type": "reactiondamage",
+        "cost": 1,
+        "condition": ""
+      },
+      "duration": {
+        "value": null,
+        "units": ""
+      },
+      "target": {
+        "value": null,
+        "width": null,
+        "units": "",
+        "type": "self"
+      },
+      "range": {
+        "value": null,
+        "long": null,
+        "units": "self"
+      },
+      "uses": {
+        "value": null,
+        "max": "",
+        "per": ""
+      },
+      "consume": {
+        "type": "",
+        "target": "",
+        "amount": null
+      },
+      "ability": "dex",
+      "actionType": "other",
+      "attackBonus": 0,
+      "chatFlavor": "",
+      "critical": {
+        "threshold": null,
+        "damage": null
+      },
+      "damage": {
+        "parts": [],
+        "versatile": "",
+        "value": ""
+      },
+      "formula": "",
+      "save": {
+        "ability": "",
+        "dc": null,
+        "scaling": "spell"
+      },
+      "requirements": "",
+      "recharge": {
+        "value": null,
+        "charged": false
+      },
+      "attunement": null
+    },
+    "effects": [
+      {
+        "_id": "H1e6fwRl1wHdCED9",
+        "changes": [
+          {
+            "key": "flags.midi-qol.DR.rwak",
+            "mode": 0,
+            "value": "1d10 + @mod + @classes.monk.levels",
+            "priority": "20"
+          }
+        ],
+        "disabled": false,
+        "duration": {
+          "startTime": null
+        },
+        "icon": "icons/skills/ranged/arrow-flying-white-blue.webp",
+        "label": "Deflect Missiles",
+        "transfer": false,
+        "flags": {
+          "dae": {
+            "stackable": "none",
+            "macroRepeat": "none",
+            "specialDuration": [
+              "1Reaction"
+            ],
+            "transfer": false
+          },
+          "dnd5e-helpers": {
+            "rest-effect": "Ignore"
+          },
+          "ActiveAuras": {
+            "isAura": false,
+            "aura": "None",
+            "radius": null,
+            "alignment": "",
+            "type": "",
+            "ignoreSelf": false,
+            "height": false,
+            "hidden": false,
+            "hostile": false,
+            "onlyOnce": false,
+            "displayTemp": false
+          },
+          "core": {
+            "statusId": ""
+          }
+        },
+        "tint": null,
+        "selectedKey": "__"
+      }
+    ],
+    "flags": {
+      "ddbimporter": {
+        "id": "53365",
+        "entityTypeId": "222216831",
+        "componentId": 231,
+        "componentTypeId": 12168134,
+        "dndbeyond": {
+          "levelScale": null,
+          "levelScales": [],
+          "limitedUse": [
+            {
+              "level": null,
+              "uses": 1
+            },
+            {
+              "level": null,
+              "uses": 1
+            }
+          ]
+        }
+      },
+      "infusions": {
+        "infused": false
+      },
+      "favtab": {
+        "isFavorite": true
+      },
+      "siftoolkit": {
+        "SIFData": {
+          "ignoreDuration": false,
+          "texture": "",
+          "useTexture": false,
+          "alpha": 50,
+          "coneOrigin": 1,
+          "loopAnimations": true,
+          "playTemplateAudio": false,
+          "playDamageAudio": false,
+          "playSaveAudio": false,
+          "clip": "",
+          "volume": 100
+        }
+      },
+      "midi-qol": {
+        "onUseMacroName": "",
+        "effectActivation": false
+      },
+      "magicitems": {
+        "enabled": false,
+        "equipped": false,
+        "attuned": false,
+        "charges": "0",
+        "chargeType": "c1",
+        "destroy": false,
+        "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+        "rechargeable": false,
+        "recharge": "0",
+        "rechargeType": "t1",
+        "rechargeUnit": "r1",
+        "sorting": "l"
+      },
+      "core": {
+        "sourceId": "Item.EA5OtbScEUYPh1V2"
+      },
+      "exportSource": {
+        "world": "thentos",
+        "system": "dnd5e",
+        "coreVersion": "9.245",
+        "systemVersion": "1.5.7"
+      }
+    }
+  }
