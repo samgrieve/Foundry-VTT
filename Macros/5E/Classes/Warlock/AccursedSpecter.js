@@ -1,6 +1,6 @@
 const actorD = game.actors.get(args[0].actor._id);
-const tokenD = canvas.tokens.get(args[0].tokenId);
 const summonType = "Accursed Specter";
+const casterToken = await fromUuid(args[0].tokenUuid);
 
 let updates = {
     token : {
@@ -18,4 +18,42 @@ let updates = {
     
 }
 
-warpgate.spawn(summonType, updates);
+await warpgate.spawn(summonType, {}, {
+
+    pre: async (location, updates) => {
+        // When the user has clicked where they want it
+
+            new Sequence()
+                .effect()
+                    .file("jb2a.extras.tmfx.runes.circle.outpulse.necromancy")
+                    .atLocation(casterToken)
+                    .duration(2000)
+                    .fadeIn(500)
+                    .fadeOut(500)
+                    .scale(0.5)
+                    .filter("Glow", { color: 0xffffbf })
+                    .scaleIn(0, 500, {ease: "easeOutCubic", delay: 100})
+                .effect()
+                    .file("jb2a.moonbeam.01.intro.blue")
+                    .atLocation(casterToken)
+                    .fadeIn(100)
+                    .fadeOut(200)
+                    .duration(1200)
+            .play();
+        
+    },
+    post: async (location, spawnedToken, updates, iteration) => {
+        // When the token has been spawned
+
+        new Sequence()
+        .effect()
+            .file("jb2a.toll_the_dead.red.shockwave")
+            .atLocation(location)
+            .fadeOut(500)
+            .randomRotation()
+            .scale(0.5)
+        .play();
+    }
+
+
+})
