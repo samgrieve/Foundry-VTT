@@ -18,7 +18,7 @@ let updates = {
     
 }
 
-await warpgate.spawn(summonType, {}, {
+await warpgate.spawn(summonType, updates, {}, {
 
     pre: async (location, updates) => {
         // When the user has clicked where they want it
